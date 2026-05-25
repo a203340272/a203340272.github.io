@@ -1,0 +1,735 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="qinxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="&#x3D;&#x3D;Qt&#x3D;&#x3D;是跨平台的应用程序框架，可以在多个平台上运行，而&#x3D;&#x3D;GDI+&#x3D;&#x3D;只能运行在Windows 操作系统上。Qt绘图是基于QPainter对象进行绘图，而GDI+绘图是基于Graphics对象进行绘图。Qt提供了一套用于GUI编程的类库，包括了绘图、网络、XML、数据库、多线程等模块，而**GDI+**只提供了一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GDI+绘图">
+<meta property="og:url" content="http://example.com/2026/02/06/MFC/GDI+%E7%BB%98%E5%9B%BE/index.html">
+<meta property="og:site_name" content="qinxy">
+<meta property="og:description" content="&#x3D;&#x3D;Qt&#x3D;&#x3D;是跨平台的应用程序框架，可以在多个平台上运行，而&#x3D;&#x3D;GDI+&#x3D;&#x3D;只能运行在Windows 操作系统上。Qt绘图是基于QPainter对象进行绘图，而GDI+绘图是基于Graphics对象进行绘图。Qt提供了一套用于GUI编程的类库，包括了绘图、网络、XML、数据库、多线程等模块，而**GDI+**只提供了一">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-25T15:12:42.752Z">
+<meta property="article:author" content="qinxy">
+<meta property="article:tag" content="MFC">
+<meta property="article:tag" content="cpp">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>GDI+绘图 - qinxy</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"IZg5elHibSO5OXkIFzys8hUC-gzGzoHsz","app_key":"yusRQDdkfsPQnUtJd5DBjBtv","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>qinxy的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="GDI+绘图"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-06 00:00" pubdate>
+          2026年2月6日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          608 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">GDI+绘图</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>&#x3D;&#x3D;<strong>Qt</strong>&#x3D;&#x3D;是跨平台的应用程序框架，可以在多个平台上运行，而&#x3D;&#x3D;<strong>GDI+</strong>&#x3D;&#x3D;只能运行在<br>Windows 操作系统上。<br>Q<strong>t</strong>绘图是基于QPainter对象进行绘图，而<strong>GDI+<strong>绘图是基于Graphics对象进行绘图。<br>Q</strong>t</strong>提供了一套用于GUI编程的类库，包括了绘图、网络、XML、数据库、多线程等模块，而**GDI+**只提供了一套用于绘制图形的API。]{.mark}</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/devilhy1986/article/details/39576623">https://blog.csdn.net/devilhy1986/article/details/39576623</a></p>
+<p>&#x3D;&#x3D;GdiplusBrush&#x3D;&#x3D;是 GDI+ 中用于绘制图形的类，它位于 <strong>GDI+</strong><br>库中，而不是传统的 GDI（&#x3D;&#x3D;CBrush&#x3D;&#x3D;）。在 MFC 中，使用 GDI+<br>需要包含特定的头文件。</p>
+<p><strong>需要包含的头文件：</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> \<span class="hljs-string">&lt;gdiplus.h\&gt;</span></span><br></code></pre></td></tr></table></figure>
+<p>这个头文件是 GDI+ 的主要头文件，它包含了大部分 GDI+ 类的定义，包括<br>&#x3D;&#x3D;Gdiplus::Brush&#x3D;&#x3D;（&#x3D;&#x3D;GdiplusBrush&#x3D;&#x3D;），&#x3D;&#x3D;Gdiplus::Graphics&#x3D;&#x3D;<br>等。</p>
+<p>**如何使用 GDI+ 的 &#x3D;&#x3D;Brush&#x3D;&#x3D;</p>
+<p>在 MFC 中使用 GDI+ 时，你需要初始化<br>GDI+，通常是在应用程序启动时。以下是一个简单的例子，展示了如何在 MFC<br>中使用]{.mark}</p>
+<p>GdiplusBrush：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> \<span class="hljs-string">&lt;afxwin.h\&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> \<span class="hljs-string">&lt;gdiplus.h\&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">pragma</span> comment(lib, \<span class="hljs-string">&quot;gdiplus.lib\&quot;)</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">using namespace Gdiplus;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">class CMyView : public CView &#123;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">protected:</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">void OnDraw(CDC\* pDC) override &#123;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">Graphics graphics(pDC-\&gt;m_hDC); // 获取图形对象</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">SolidBrush brush(Color(255, 0, 255, 0)); // 创建绿色画刷</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">// 使用 GDI+ 绘制矩形</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">graphics.FillRectangle(&amp;brush, 50, 50, 200, 200);</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">&#125;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">&#125;;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">class CMyApp : public CWinApp &#123;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">public:</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">BOOL InitInstance() override &#123;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">GdiplusStartupInput gdiplusStartupInput;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">ULONG_PTR gdiplusToken;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">GdiplusStartup(&amp;gdiplusToken, &amp;gdiplusStartupInput, NULL); // 初始化</span></span><br><span class="hljs-string"><span class="hljs-meta">GDI+</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">CWinApp::InitInstance();</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">return TRUE;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">&#125;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">int ExitInstance() override &#123;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">GdiplusShutdown(gdiplusToken); // 关闭 GDI+</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">return CWinApp::ExitInstance();</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">&#125;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">&#125;;</span></span><br><span class="hljs-string"><span class="hljs-meta"></span></span><br><span class="hljs-string"><span class="hljs-meta">CMyApp theApp;</span></span><br></code></pre></td></tr></table></figure>
+<p><strong>关键点说明：</strong></p>
+<ol>
+<li><p>#include &lt;gdiplus.h&gt;：这是包含 GDI+ 所需的头文件。</p>
+</li>
+<li><p>Gdiplus::Graphics：在 MFC 中 GDI+时，必须获取一个 &#x3D;&#x3D;Graphics&#x3D;&#x3D;对象，它是 GDI+ 绘图的核心对象。</p>
+</li>
+<li><p>SolidBrush：用于创建填充颜色的画刷。你可以创建不同类型的画刷，如 &#x3D;&#x3D;SolidBrush&#x3D;&#x3D;（实心颜色画刷）、&#x3D;&#x3D;TextureBrush&#x3D;&#x3D;（纹理画刷）等。</p>
+</li>
+<li><p>GdiplusStartup和 &#x3D;&#x3D;GdiplusShutdown&#x3D;&#x3D;**：在应用程序的初始化和退出时，你需要启动和关闭GDI+，分别调用 &#x3D;&#x3D;GdiplusStartup&#x3D;&#x3D; 和 &#x3D;&#x3D;GdiplusShutdown&#x3D;&#x3D;。</p>
+</li>
+</ol>
+<p><strong>总结</strong></p>
+<ul>
+<li><p>GdiplusBrush 这个名称是 GDI+ 中的一个类，用来描述画刷。MFC 中使用 GDI+时，您应该包含 &#x3D;&#x3D;gdiplus.h&#x3D;&#x3D; 头文件，并初始化 GDI+。</p>
+</li>
+<li><p>GDI+ 提供了比传统 GDI更强大的图形绘制功能，适用于需要更复杂图形操作的应用。</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/MFC/" class="category-chain-item">MFC</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/MFC/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/cpp/" class="print-no-link">#cpp</a>
+      
+        <a href="/tags/MFC/" class="print-no-link">#MFC</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>GDI+绘图</div>
+      <div>http://example.com/2026/02/06/MFC/GDI+绘图/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>qinxy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/02/06/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="23种设计模式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">23种设计模式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/02/06/MFC/MFC%20%20DLL%EF%BC%88%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%EF%BC%89/" title="MFC DLL（动态链接库）">
+                        <span class="hidden-mobile">MFC DLL（动态链接库）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
