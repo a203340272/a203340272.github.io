@@ -19,21 +19,23 @@
   <meta name="author" content="qinxy">
   <meta name="keywords" content="">
   
-    <meta name="description" content="成为能讲故事的工程师，而非只会写代码的工匠。">
+    <meta name="description" content="GDB &#x2F; C++ 调试器基础练习练习环境： Visual Studio 2026 &#x2F; MSVC &#x2F; Debug x64 练习内容：  断点（Breakpoint）：在 add() 函数中设置断点，按 F5 启动程序，程序成功暂停在指定代码位置。  单步执行（Step Over）：按 F10 执行当前语句，观察程序从 add() 返回 main() 的过程。  变量查">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试文章">
-<meta property="og:url" content="http://example.com/2026/02/04/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0-1/index.html">
+<meta property="og:title" content="GDB C++调试器基础练习">
+<meta property="og:url" content="http://example.com/2026/11/11/docs/GDB%20%20C++%E8%B0%83%E8%AF%95%E5%99%A8%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/index.html">
 <meta property="og:site_name" content="qinxy">
-<meta property="og:description" content="成为能讲故事的工程师，而非只会写代码的工匠。">
+<meta property="og:description" content="GDB &#x2F; C++ 调试器基础练习练习环境： Visual Studio 2026 &#x2F; MSVC &#x2F; Debug x64 练习内容：  断点（Breakpoint）：在 add() 函数中设置断点，按 F5 启动程序，程序成功暂停在指定代码位置。  单步执行（Step Over）：按 F10 执行当前语句，观察程序从 add() 返回 main() 的过程。  变量查">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-04T10:50:39.000Z">
-<meta property="article:modified_time" content="2026-02-04T10:50:39.374Z">
+<meta property="article:published_time" content="2026-11-11T06:11:28.000Z">
+<meta property="article:modified_time" content="2026-11-17T11:05:15.747Z">
 <meta property="article:author" content="qinxy">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="GDB">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>测试文章 - qinxy</title>
+  <title>GDB C++调试器基础练习 - qinxy</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -212,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="测试文章"></span>
+            <span id="subtitle" data-typed-text="GDB C++调试器基础练习"></span>
           
         </div>
 
@@ -223,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-04 18:50" pubdate>
-          2026年2月4日 晚上
+        <time datetime="2026-11-11 14:11" pubdate>
+          2026年11月11日 下午
         </time>
       </span>
     
@@ -235,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          233 字
         
       </span>
     
@@ -246,7 +248,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -292,12 +294,43 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">测试文章</h1>
+            <h1 id="seo-header">GDB C++调试器基础练习</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h2 id="GDB-C-调试器基础练习"><a href="#GDB-C-调试器基础练习" class="headerlink" title="GDB &#x2F; C++ 调试器基础练习"></a>GDB &#x2F; C++ 调试器基础练习</h2><p><strong>练习环境：</strong> Visual Studio 2026 &#x2F; MSVC &#x2F; Debug x64</p>
+<p><strong>练习内容：</strong></p>
+<ol>
+<li><p><strong>断点（Breakpoint）</strong>：在 <code>add()</code> 函数中设置断点，按 F5 启动程序，程序成功暂停在指定代码位置。</p>
+</li>
+<li><p><strong>单步执行（Step Over）</strong>：按 F10 执行当前语句，观察程序从 <code>add()</code> 返回 <code>main()</code> 的过程。</p>
+</li>
+<li><p><strong>变量查看（Watch）</strong>：查看函数参数 <code>a = 2</code>、<code>b = 3</code>，计算结果为 <code>5</code>。</p>
+</li>
+<li><p><strong>调用栈（Call Stack）</strong>：在 <code>add()</code> 断点处查看调用栈，确认调用关系为 <code>main() → add()</code>。</p>
+</li>
+<li><p><strong>继续执行（Continue）</strong>：按 F5，程序继续运行并正常退出。</p>
+</li>
+</ol>
+<p><strong>练习结论：</strong></p>
+<p>掌握了 C++ 调试器的基本使用，包括断点设置、单步执行、局部变量查看、调用栈分析及继续执行。理解了函数调用过程中程序执行位置和调用关系的变化。</p>
+<p><strong>GDB 命令与 VS 调试器对应：</strong></p>
+<ul>
+<li><p><code>break</code> → 设置断点</p>
+</li>
+<li><p><code>run</code> → 启动调试</p>
+</li>
+<li><p><code>next</code> → F10</p>
+</li>
+<li><p><code>print</code> → Watch &#x2F; Locals</p>
+</li>
+<li><p><code>backtrace</code> → Call Stack</p>
+</li>
+<li><p><code>continue</code> → F5</p>
+</li>
+</ul>
+
                 
               </div>
             
@@ -305,6 +338,43 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C-%E5%AD%A6%E4%B9%A0/" class="category-chain-item">C++ 学习</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/C-%E5%AD%A6%E4%B9%A0/GDB/" class="category-chain-item">GDB</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+        <a href="/tags/GDB/" class="print-no-link">#GDB</a>
+      
+    </div>
   
 </div>
 
@@ -314,8 +384,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>测试文章</div>
-      <div>http://example.com/2026/02/04/测试文章-1/</div>
+      <div>GDB C++调试器基础练习</div>
+      <div>http://example.com/2026/11/11/docs/GDB  C++调试器基础练习/</div>
     </div>
     <div class="license-meta">
       
@@ -327,7 +397,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月4日</div>
+          <div>2026年11月11日</div>
         </div>
       
       
@@ -359,9 +429,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/02/06/MFC/MFC%20%20DLL%EF%BC%88%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93%EF%BC%89/" title="MFC DLL（动态链接库）">
+                      <a href="/2026/11/17/C++%E8%AF%AD%E6%B3%95/" title="C++语法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MFC DLL（动态链接库）</span>
+                        <span class="hidden-mobile">C++语法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -369,8 +439,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/04/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">
-                        <span class="hidden-mobile">测试文章</span>
+                      <a href="/2026/10/16/docs/effective-cpp-1-5/" title="Effective C++ 条款 1-5">
+                        <span class="hidden-mobile">Effective C++ 条款 1-5</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
