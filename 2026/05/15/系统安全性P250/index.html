@@ -1,0 +1,1113 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="qinxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 知识结构总览（按PPT脑图） 系统安全分析与设计: 信息安全基础（4星） 信息加解密技术（2星） 访问控制及数字签名技术（1星） 信息安全的保障体系（1星） 网络威胁（2星） 网络安全协议（1星） 网络安全体系架构设计 开放系统互联安全体系结构 认证框架（身份维度） 访问控制框架（限制正确的人以正确的身份访问） 机密性框架（加密解密） 完整性框架（） 抗抵赖框架（签名）   区块链技术（案例">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统安全性P250">
+<meta property="og:url" content="http://example.com/2026/05/15/%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E6%80%A7P250/index.html">
+<meta property="og:site_name" content="qinxy">
+<meta property="og:description" content="1. 知识结构总览（按PPT脑图） 系统安全分析与设计: 信息安全基础（4星） 信息加解密技术（2星） 访问控制及数字签名技术（1星） 信息安全的保障体系（1星） 网络威胁（2星） 网络安全协议（1星） 网络安全体系架构设计 开放系统互联安全体系结构 认证框架（身份维度） 访问控制框架（限制正确的人以正确的身份访问） 机密性框架（加密解密） 完整性框架（） 抗抵赖框架（签名）   区块链技术（案例">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-17T11:20:40.751Z">
+<meta property="article:author" content="qinxy">
+<meta property="article:tag" content="cpp">
+<meta property="article:tag" content="架构设计师">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>系统安全性P250 - qinxy</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"IZg5elHibSO5OXkIFzys8hUC-gzGzoHsz","app_key":"yusRQDdkfsPQnUtJd5DBjBtv","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>qinxy的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="系统安全性P250"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-15 00:00" pubdate>
+          2026年5月15日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">系统安全性P250</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-知识结构总览（按PPT脑图）"><a href="#1-知识结构总览（按PPT脑图）" class="headerlink" title="1. 知识结构总览（按PPT脑图）"></a>1. 知识结构总览（按PPT脑图）</h2><ul>
+<li>系统安全分析与设计:</li>
+<li>信息安全基础（4星）</li>
+<li>信息加解密技术（2星）</li>
+<li>访问控制及数字签名技术（1星）</li>
+<li>信息安全的保障体系（1星）</li>
+<li>网络威胁（2星）</li>
+<li>网络安全协议（1星）</li>
+<li>网络安全体系架构设计<ul>
+<li>开放系统互联安全体系结构</li>
+<li>认证框架（身份维度）</li>
+<li>访问控制框架（限制正确的人以正确的身份访问）</li>
+<li>机密性框架（加密解密）</li>
+<li>完整性框架（）</li>
+<li>抗抵赖框架（签名）</li>
+</ul>
+</li>
+<li>区块链技术（案例）<ul>
+<li>什么是区块链</li>
+<li>区块链的特点</li>
+<li>去中心化</li>
+<li>哈希加密&#x2F;防篡改</li>
+<li>共识算法（博弈论）&#x2F;全民记账</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-信息安全五要素（高频必考）"><a href="#2-信息安全五要素（高频必考）" class="headerlink" title="2. 信息安全五要素（高频必考）"></a>2. 信息安全五要素（高频必考）</h2><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机密性</td>
+<td>信息不&#x3D;&#x3D;泄露&#x3D;&#x3D;给非授权用户&#x2F;实体&#x2F;进程</td>
+</tr>
+<tr>
+<td>完整性</td>
+<td>信息未经授权不能被修改；可检测&#x3D;&#x3D;篡改&#x3D;&#x3D;</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>&#x3D;&#x3D;合法&#x3D;&#x3D;用户可及时、可靠地访问信息与服务</td>
+</tr>
+<tr>
+<td>可控性</td>
+<td>对信息传播及使用范围可进行&#x3D;&#x3D;控制&#x3D;&#x3D;</td>
+</tr>
+<tr>
+<td>可审查性</td>
+<td>提供安全事件追溯、取证、审计依据&#x3D;&#x3D;（日志记录）&#x3D;&#x3D;</td>
+</tr>
+</tbody></table>
+<ul>
+<li>信息安全范围：设备安全、数据安全、内容安全、行为安全。</li>
+</ul>
+<hr>
+<h2 id="3-典型选择题考点整理"><a href="#3-典型选择题考点整理" class="headerlink" title="3. 典型选择题考点整理"></a>3. 典型选择题考点整理</h2><h3 id="3-2-非对称加密流程题（顺序题）"><a href="#3-2-非对称加密流程题（顺序题）" class="headerlink" title="3.2 非对称加密流程题（顺序题）"></a>3.2 非对称加密流程题（顺序题）</h3><p>正确流程应理解为：</p>
+<ul>
+<li><p>A、B 各自产生公私钥对</p>
+</li>
+<li><p>双方交换公钥、各自保存私钥</p>
+</li>
+<li><p>A 给 B 发消息：用 <strong>B 的公钥加密</strong></p>
+</li>
+<li><p>B 收到后：用 <strong>B 的私钥解密</strong></p>
+</li>
+<li><p>核心原则：</p>
+</li>
+<li><p>&#x3D;&#x3D;“公钥加密，私钥解密”（保密通信场景）&#x3D;&#x3D;</p>
+</li>
+<li><p>&#x3D;&#x3D;“私钥签名，公钥验签”（数字签名场景）&#x3D;&#x3D;</p>
+</li>
+</ul>
+<h3 id="3-3-数字签名验证题（证书-验签）"><a href="#3-3-数字签名验证题（证书-验签）" class="headerlink" title="3.3 数字签名验证题（证书+验签）"></a>3.3 数字签名验证题（证书+验签）</h3><p>用户验证“甲签名消息 M 真实性”的标准步骤：</p>
+<ul>
+<li><p>先从 CA 获取甲的数字证书</p>
+</li>
+<li><p>用&#x3D;&#x3D;<strong>CA 的公钥</strong> 验证证书真伪&#x3D;&#x3D;</p>
+</li>
+<li><p>从证书中取出 <strong>甲的公钥</strong></p>
+</li>
+<li><p>用 &#x3D;&#x3D;<strong>甲的公钥</strong> 验证甲对消息 M 的签名&#x3D;&#x3D;</p>
+</li>
+<li><p>易错点：</p>
+</li>
+<li><p>不能用乙的密钥去验证甲的签名</p>
+</li>
+<li><p>验证证书真伪用 CA 公钥，不是甲私钥</p>
+</li>
+</ul>
+<hr>
+<h2 id="4-加密与签名综合流程（高频图解题）"><a href="#4-加密与签名综合流程（高频图解题）" class="headerlink" title="4. 加密与签名综合流程（高频图解题）"></a>4. 加密与签名综合流程（高频图解题）</h2><h3 id="4-2-数字签名（仅验真）"><a href="#4-2-数字签名（仅验真）" class="headerlink" title="4.2 数字签名（仅验真）"></a>4.2 数字签名（仅验真）</h3><ul>
+<li>A先对消息做摘要（如SHA）</li>
+<li>A使用 <strong>A的私钥Sa</strong> 对摘要加密（签名）</li>
+<li>B使用 <strong>A的公钥Pa</strong> 验证签名</li>
+<li>结论：保证来源可验证与完整性校验，不保证机密性</li>
+</ul>
+<h3 id="4-3-混合加密（工程常用）"><a href="#4-3-混合加密（工程常用）" class="headerlink" title="4.3 混合加密（工程常用）"></a>4.3 混合加密（工程常用）</h3><ul>
+<li>正文：用随机会话密钥K对称加密</li>
+<li>密钥K：用B公钥Pb加密传输</li>
+<li>签名：A对摘要签名（Sa）</li>
+<li>接收：B用Sb解K、解正文，并用Pa验签</li>
+</ul>
+<h2 id="5-典型题：摘要与签名算法识别"><a href="#5-典型题：摘要与签名算法识别" class="headerlink" title="5. 典型题：摘要与签名算法识别"></a>5. 典型题：摘要与签名算法识别</h2><ul>
+<li>题干：“先生成消息摘要，再对摘要加密签名”</li>
+<li>规则：</li>
+<li>生成摘要用 &#x3D;&#x3D;<strong>摘要算法</strong>（如SHA MD5）&#x3D;&#x3D;</li>
+<li>对摘要加密签名用 &#x3D;&#x3D;<strong>非对称算法</strong>（如RSA&#x2F;ECC）&#x3D;&#x3D;</li>
+<li>速判：若选项中第一空含SHA，第二空应选RSA&#x2F;ECC类而非DES</li>
+</ul>
+<hr>
+<h2 id="6-X-509数字证书考点"><a href="#6-X-509数字证书考点" class="headerlink" title="6. X.509数字证书考点"></a>6. X.509数字证书考点</h2><h3 id="6-1-通过证书可获得"><a href="#6-1-通过证书可获得" class="headerlink" title="6.1 通过证书可获得"></a>6.1 通过证书可获得</h3><ul>
+<li>证书版本号</li>
+<li>证书序列号</li>
+<li>签名算法标识</li>
+<li>主体名称</li>
+<li>颁发者名称</li>
+<li>有效期</li>
+<li>&#x3D;&#x3D;主体公钥&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;颁发者（CA）签名&#x3D;&#x3D;</li>
+</ul>
+<h3 id="6-2-不能通过证书获得"><a href="#6-2-不能通过证书获得" class="headerlink" title="6.2 不能通过证书获得"></a>6.2 不能通过证书获得</h3><ul>
+<li>&#x3D;&#x3D;主体私钥（绝不公开）&#x3D;&#x3D;</li>
+</ul>
+<h3 id="6-3-高频选择题结论"><a href="#6-3-高频选择题结论" class="headerlink" title="6.3 高频选择题结论"></a>6.3 高频选择题结论</h3><ul>
+<li>“通过CA签发证书可得知什么？”</li>
+<li>标准答案通常是：<strong>主体公钥</strong></li>
+</ul>
+<hr>
+<h2 id="7-访问控制模型补充（TBAC重点）"><a href="#7-访问控制模型补充（TBAC重点）" class="headerlink" title="7. 访问控制模型补充（TBAC重点）"></a>7. 访问控制模型补充（TBAC重点）</h2><h3 id="7-1-TBAC定义"><a href="#7-1-TBAC定义" class="headerlink" title="7.1 TBAC定义"></a>7.1 TBAC定义</h3><ul>
+<li>TBAC：基于任务的访问控制</li>
+<li>适用于数据与流程频繁变化、按任务动态授权的场景</li>
+</ul>
+<h3 id="7-2-TBAC组成（高频）"><a href="#7-2-TBAC组成（高频）" class="headerlink" title="7.2 TBAC组成（高频）"></a>7.2 TBAC组成（高频）</h3><ul>
+<li>&#x3D;&#x3D;工作流&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;授权结构体&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;控制规则&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;许可集&#x3D;&#x3D;</li>
+</ul>
+<h3 id="7-3-对比速记"><a href="#7-3-对比速记" class="headerlink" title="7.3 对比速记"></a>7.3 对比速记</h3><ul>
+<li>RBAC：基于“角色”</li>
+<li>TBAC：基于“任务流转状态”</li>
+<li>ABAC：基于“属性+环境条件”</li>
+<li>OBAC：基于“对象”</li>
+</ul>
+<hr>
+<h2 id="8-认证框架（鉴别）考点"><a href="#8-认证框架（鉴别）考点" class="headerlink" title="8. 认证框架（鉴别）考点"></a>8. 认证框架（鉴别）考点</h2><ul>
+<li>鉴别基本目的：<strong>防止其他实体占用和独立操作被鉴别实体的&#x3D;&#x3D;身份&#x3D;&#x3D;</strong></li>
+<li>常见鉴别因子：</li>
+<li>你知道什么（密码）</li>
+<li>你拥有什么（令牌&#x2F;证书）</li>
+<li>你是什么（生物特征）</li>
+<li>第三方鉴别，环境</li>
+<li>易混概念：</li>
+<li>鉴别 ≠ 抗抵赖</li>
+<li>鉴别是“当下确认你是谁”，抗抵赖是“事后你&#x3D;&#x3D;不能否认&#x3D;&#x3D;做过什么”</li>
+</ul>
+<hr>
+<h2 id="9-SQL注入选择题判断规则"><a href="#9-SQL注入选择题判断规则" class="headerlink" title="9. SQL注入选择题判断规则"></a>9. SQL注入选择题判断规则</h2><ul>
+<li>正确防护：</li>
+<li>参数化查询 &#x2F; 预编译（PreparedStatement）</li>
+<li>严格输入校验与最小权限</li>
+<li>错误认知：</li>
+<li>“使用ORM就能完全消除SQL注入”是错误说法</li>
+<li>攻击手法认知：</li>
+<li>UNION可被用于拼接查询结果窃取数据（属于常见注入利用方式）</li>
+</ul>
+<hr>
+<h2 id="10-OSI安全体系常考点"><a href="#10-OSI安全体系常考点" class="headerlink" title="10. OSI安全体系常考点"></a>10. OSI安全体系常考点</h2><ul>
+<li>OSI共7层</li>
+<li>选择题常考：“哪层不提供相应安全服务”</li>
+<li>高频答案：&#x3D;&#x3D;**（会话层）&#x3D;&#x3D;</li>
+</ul>
+<h2 id="11-开放系统互联安全体系结构（OSI-Security-Architecture）"><a href="#11-开放系统互联安全体系结构（OSI-Security-Architecture）" class="headerlink" title="11. 开放系统互联安全体系结构（OSI Security Architecture）"></a>11. 开放系统互联安全体系结构（OSI Security Architecture）</h2><ul>
+<li>标准来源：GB&#x2F;T 9387.2-1995（基于OSI参考模型）</li>
+<li>核心思想：在OSI 7层中，除&#x3D;&#x3D;会话层&#x3D;&#x3D;外，各层都可提供相应安全服务（高频选择题）</li>
+</ul>
+<h3 id="11-1-安全服务（Security-Services）"><a href="#11-1-安全服务（Security-Services）" class="headerlink" title="11.1 安全服务（Security Services）"></a>11.1 安全服务（Security Services）</h3><ul>
+<li>鉴别服务</li>
+<li>访问控制服务</li>
+<li>数据机密性服务</li>
+<li>数据完整性服务</li>
+<li>抗抵赖服务</li>
+</ul>
+<h3 id="11-2-安全机制（Security-Mechanisms）"><a href="#11-2-安全机制（Security-Mechanisms）" class="headerlink" title="11.2 安全机制（Security Mechanisms）"></a>11.2 安全机制（Security Mechanisms）</h3><ul>
+<li>加密</li>
+<li>数字签名</li>
+<li>访问控制</li>
+<li>数据完整性机制</li>
+<li>鉴别交换</li>
+<li>业务填充</li>
+<li>路由控制</li>
+<li>公证</li>
+</ul>
+<h3 id="11-3-高频结论"><a href="#11-3-高频结论" class="headerlink" title="11.3 高频结论"></a>11.3 高频结论</h3><ul>
+<li>“OSI中哪层通常不直接提供安全服务？”→ &#x3D;&#x3D;会话层&#x3D;&#x3D;</li>
+<li>“数字签名属于安全机制还是安全服务？”→ &#x3D;&#x3D;机制&#x3D;&#x3D;</li>
+<li>“抗抵赖属于什么？”→ &#x3D;&#x3D;安全服务&#x3D;&#x3D;</li>
+</ul>
+<hr>
+<h2 id="12-常见网络安全协议与层次定位（必考）"><a href="#12-常见网络安全协议与层次定位（必考）" class="headerlink" title="12. 常见网络安全协议与层次定位（必考）"></a>12. 常见网络安全协议与层次定位（必考）</h2><h3 id="12-1-协议-层次速记"><a href="#12-1-协议-层次速记" class="headerlink" title="12.1 协议-层次速记"></a>12.1 协议-层次速记</h3><ul>
+<li>PGP：应用层（邮件&#x2F;文件加密）MIME也是邮件</li>
+<li>SET：应用层（电子商务安全交易）</li>
+<li>SSL&#x2F;TLS：位于应用层与传输层之间（常考“会话层”说法）</li>
+<li>SSH：应用层（安全远程登录）</li>
+<li>IPSec：网络层（IP层安全）</li>
+<li>PPTP&#x2F;L2TP：数据链路层&#x2F;隧道相关（VPN场景）</li>
+</ul>
+<h3 id="12-2-IPSec高频判断"><a href="#12-2-IPSec高频判断" class="headerlink" title="12.2 IPSec高频判断"></a>12.2 IPSec高频判断</h3><ul>
+<li>IPSec工作层次：&#x3D;&#x3D;网络层&#x3D;&#x3D;</li>
+<li>适用场景：主机-主机、主机-网关、网关-网关</li>
+<li>标准属性：开放标准（IETF），非“商业私有标准”</li>
+<li>版本适配：可用于IPv4，也可用于IPv6（IPv6原生支持IPSec框架）</li>
+</ul>
+<h3 id="12-3-典型错项"><a href="#12-3-典型错项" class="headerlink" title="12.3 典型错项"></a>12.3 典型错项</h3><ul>
+<li>“IPSec在链路层提供安全服务”→ 错</li>
+<li>“IPSec仅针对IPv4”→ 错</li>
+<li>“IPSec是商业标准”→ 错</li>
+</ul>
+<hr>
+<h2 id="13-网络安全体系设计分层（管理-系统-网络-应用-物理）"><a href="#13-网络安全体系设计分层（管理-系统-网络-应用-物理）" class="headerlink" title="13. 网络安全体系设计分层（管理&#x2F;系统&#x2F;网络&#x2F;应用&#x2F;物理）"></a>13. 网络安全体系设计分层（管理&#x2F;系统&#x2F;网络&#x2F;应用&#x2F;物理）</h2><h3 id="13-1-五类安全"><a href="#13-1-五类安全" class="headerlink" title="13.1 五类安全"></a>13.1 五类安全</h3><ul>
+<li>物理环境安全（机房、线路、设备）</li>
+<li>操作系统安全（鉴权、访问控制、漏洞、恶意代码）</li>
+<li>网络安全（边界、入侵检测、防病毒、路由与远程接入安全）</li>
+<li>应用安全（Web、邮件、数据库、中间件等）</li>
+<li>管理安全（制度、组织、运维管理、审计流程）</li>
+</ul>
+<h3 id="13-2-题型结论"><a href="#13-2-题型结论" class="headerlink" title="13.2 题型结论"></a>13.2 题型结论</h3><ul>
+<li>“数据库容灾属于哪类？”→ 通常归于 &#x3D;&#x3D;系统安全+应用安全&#x3D;&#x3D;（常见答案 D）</li>
+</ul>
+<hr>
+<h2 id="14-信息系统安全保护等级（GB-17859）速记"><a href="#14-信息系统安全保护等级（GB-17859）速记" class="headerlink" title="14. 信息系统安全保护等级（GB 17859）速记"></a>14. 信息系统安全保护等级（GB 17859）速记</h2><h3 id="14-1-五个保护等级（由低到高）"><a href="#14-1-五个保护等级（由低到高）" class="headerlink" title="14.1 五个保护等级（由低到高）"></a>14.1 五个保护等级（由低到高）</h3><table>
+<thead>
+<tr>
+<th>等级</th>
+<th>名称</th>
+<th>破坏后影响（关键词）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第1级</td>
+<td>&#x3D;&#x3D;用户&#x3D;&#x3D;自主保护级</td>
+<td>损害个人&#x2F;法人权益</td>
+</tr>
+<tr>
+<td>第2级</td>
+<td>系统&#x3D;&#x3D;审计&#x3D;&#x3D;保护级</td>
+<td>严重损害权益，损害社会秩序和公共利益</td>
+</tr>
+<tr>
+<td>第3级</td>
+<td>&#x3D;&#x3D;安全标记&#x3D;&#x3D;保护级</td>
+<td>严重损害社会秩序和公共利益，或损害国家安全</td>
+</tr>
+<tr>
+<td>第4级</td>
+<td>&#x3D;&#x3D;结构化&#x3D;&#x3D;保护级</td>
+<td>对社会公共利益造成特别严重损害，或对国家安全造成严重损害</td>
+</tr>
+<tr>
+<td>第5级</td>
+<td>访问&#x3D;&#x3D;验证&#x3D;&#x3D;保护级</td>
+<td>对国家安全造成特别严重损害（最高）</td>
+</tr>
+</tbody></table>
+<h3 id="14-2-高频题眼"><a href="#14-2-高频题眼" class="headerlink" title="14.2 高频题眼"></a>14.2 高频题眼</h3><ul>
+<li>“最高等级是？”→ &#x3D;&#x3D;访问验证保护级（第5级）&#x3D;&#x3D;（可以先记135）</li>
+</ul>
+<hr>
+<h2 id="15-安全模型与目标（BLP-Biba-Clark-Wilson）"><a href="#15-安全模型与目标（BLP-Biba-Clark-Wilson）" class="headerlink" title="15. 安全模型与目标（BLP&#x2F;Biba&#x2F;Clark-Wilson）"></a>15. 安全模型与目标（BLP&#x2F;Biba&#x2F;Clark-Wilson）</h2><h3 id="15-1-模型分类速记"><a href="#15-1-模型分类速记" class="headerlink" title="15.1 模型分类速记"></a>15.1 模型分类速记</h3><ul>
+<li>机密性模型：</li>
+<li>BLP（Bell-LaPadula）符合军事安全的</li>
+<li>Chinese Wall</li>
+<li>完整性模型：</li>
+<li>Biba</li>
+<li>Clark-Wilson</li>
+<li>访问控制相关：</li>
+<li>DAC、MAC、RBAC</li>
+<li>基本模型：</li>
+<li>HRU</li>
+</ul>
+<h3 id="15-2-高频对应关系"><a href="#15-2-高频对应关系" class="headerlink" title="15.2 高频对应关系"></a>15.2 高频对应关系</h3><ul>
+<li>BLP解决：&#x3D;&#x3D;机密性&#x3D;&#x3D;</li>
+<li>Biba解决：&#x3D;&#x3D;完整性&#x3D;&#x3D;</li>
+<li>Clark-Wilson：面向商业完整性约束（事务一致性、职责分离）</li>
+</ul>
+<hr>
+<h2 id="16-国产商用密码算法（SM系列）考点"><a href="#16-国产商用密码算法（SM系列）考点" class="headerlink" title="16. 国产商用密码算法（SM系列）考点"></a>16. 国产商用密码算法（SM系列）考点</h2><h3 id="16-1-常考映射"><a href="#16-1-常考映射" class="headerlink" title="16.1 常考映射"></a>16.1 常考映射</h3><ul>
+<li>SM1：对称分组（128位，较早）</li>
+<li>SM2：非对称（公钥加密、密钥交换、）</li>
+<li>SM3：杂凑算法（数字签名，256位）</li>
+<li>SM4：对称分组（128位，常用于无线局域网等）</li>
+<li>SM9：标识密码（IBE体系）</li>
+</ul>
+<h3 id="16-2-题型速判"><a href="#16-2-题型速判" class="headerlink" title="16.2 题型速判"></a>16.2 题型速判</h3><ul>
+<li>“用于数字签名和验证”→ &#x3D;&#x3D;SM3&#x3D;&#x3D;</li>
+<li>“用于无线局域网产品”→ &#x3D;&#x3D;SM4&#x3D;&#x3D;</li>
+<li>“摘要算法”→ &#x3D;&#x3D;SM3&#x3D;&#x3D;</li>
+</ul>
+<hr>
+<h2 id="17-安全审计四要素与功能"><a href="#17-安全审计四要素与功能" class="headerlink" title="17. 安全审计四要素与功能"></a>17. 安全审计四要素与功能</h2><h3 id="17-1-四要素（高频）"><a href="#17-1-四要素（高频）" class="headerlink" title="17.1 四要素（高频）"></a>17.1 四要素（高频）</h3><ul>
+<li>控制目标</li>
+<li>安全漏洞</li>
+<li>控制措施</li>
+<li>控制测试</li>
+</ul>
+<h3 id="17-2-易错点"><a href="#17-2-易错点" class="headerlink" title="17.2 易错点"></a>17.2 易错点</h3><ul>
+<li>“控制过程”不属于四要素标准表述（常作干扰项）</li>
+</ul>
+<h3 id="17-3-常见审计功能（了解）"><a href="#17-3-常见审计功能（了解）" class="headerlink" title="17.3 常见审计功能（了解）"></a>17.3 常见审计功能（了解）</h3><ul>
+<li>审计自动响应</li>
+<li>审计自动生成</li>
+<li>审计分析</li>
+<li>审计浏览</li>
+<li>事件选择</li>
+<li>事件存储</li>
+</ul>
+<hr>
+<h2 id="18-信息系统灾难恢复能力等级（6级）"><a href="#18-信息系统灾难恢复能力等级（6级）" class="headerlink" title="18. 信息系统灾难恢复能力等级（6级）"></a>18. 信息系统灾难恢复能力等级（6级）</h2><table>
+<thead>
+<tr>
+<th>等级</th>
+<th>支持能力</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第1级</td>
+<td>基本支持</td>
+</tr>
+<tr>
+<td>第2级</td>
+<td>备用场地支持</td>
+</tr>
+<tr>
+<td>第3级</td>
+<td>电子传输和设备支持</td>
+</tr>
+<tr>
+<td>第4级</td>
+<td>电子传输及完整设备支持</td>
+</tr>
+<tr>
+<td>第5级</td>
+<td>实时数据传输及完整设备支持</td>
+</tr>
+<tr>
+<td>第6级</td>
+<td>数据零丢失和远程集群支持（最高）</td>
+</tr>
+</tbody></table>
+<h3 id="18-1-高频题眼"><a href="#18-1-高频题眼" class="headerlink" title="18.1 高频题眼"></a>18.1 高频题眼</h3><ul>
+<li>“第1级对应？”→ &#x3D;&#x3D;基本支持&#x3D;&#x3D;</li>
+</ul>
+<hr>
+<h2 id="19-典型软件架构脆弱性分析（选择题高频）"><a href="#19-典型软件架构脆弱性分析（选择题高频）" class="headerlink" title="19. 典型软件架构脆弱性分析（选择题高频）"></a>19. 典型软件架构脆弱性分析（选择题高频）</h2><h3 id="19-1-分层架构"><a href="#19-1-分层架构" class="headerlink" title="19.1 分层架构"></a>19.1 分层架构</h3><ul>
+<li>层间脆弱性</li>
+<li>层间通信脆弱性</li>
+</ul>
+<h3 id="19-2-C-S架构"><a href="#19-2-C-S架构" class="headerlink" title="19.2 C&#x2F;S架构"></a>19.2 C&#x2F;S架构</h3><ul>
+<li>客户端软件脆弱性</li>
+<li>网络开放性脆弱性</li>
+<li>网络协议脆弱性</li>
+</ul>
+<h3 id="19-3-B-S架构"><a href="#19-3-B-S架构" class="headerlink" title="19.3 B&#x2F;S架构"></a>19.3 B&#x2F;S架构</h3><ul>
+<li>对HTTP协议依赖高，面临更多Web攻击面（相对C&#x2F;S更易暴露）</li>
+</ul>
+<h3 id="19-4-MVC架构"><a href="#19-4-MVC架构" class="headerlink" title="19.4 MVC架构"></a>19.4 MVC架构</h3><ul>
+<li>复杂性带来的脆弱性</li>
+<li>视图对模型数据的低效访问</li>
+<li>若缺少对调用者的细粒度校验，易引发安全问题</li>
+</ul>
+<h3 id="19-5-事件驱动架构"><a href="#19-5-事件驱动架构" class="headerlink" title="19.5 事件驱动架构"></a>19.5 事件驱动架构</h3><ul>
+<li>组件脆弱性</li>
+<li>组件交换数据脆弱性</li>
+<li>组件逻辑关联复杂导致脆弱性</li>
+<li>易出现事件循环</li>
+<li>高并发脆弱性</li>
+<li>固定流程脆弱性</li>
+</ul>
+<h3 id="19-6-微内核架构"><a href="#19-6-微内核架构" class="headerlink" title="19.6 微内核架构"></a>19.6 微内核架构</h3><ul>
+<li>难做全局优化</li>
+<li>进程间通信开销较大</li>
+<li>通信损失率等性能问题</li>
+</ul>
+<h3 id="19-7-微服务架构"><a href="#19-7-微服务架构" class="headerlink" title="19.7 微服务架构"></a>19.7 微服务架构</h3><ul>
+<li>分布式复杂度高</li>
+<li>运维复杂（服务治理、监控、追踪）</li>
+<li>链路长导致故障传播风险</li>
+<li>对团队全局统筹能力要求高</li>
+</ul>
+<hr>
+<h2 id="20-本章选择题“秒杀关键词”清单"><a href="#20-本章选择题“秒杀关键词”清单" class="headerlink" title="20. 本章选择题“秒杀关键词”清单"></a>20. 本章选择题“秒杀关键词”清单</h2><ul>
+<li>OSI不提供安全服务的层：&#x3D;&#x3D;会话层&#x3D;&#x3D;</li>
+<li>IPSec层次：&#x3D;&#x3D;网络层&#x3D;&#x3D;</li>
+<li>等保最高级：&#x3D;&#x3D;访问验证保护级&#x3D;&#x3D;</li>
+<li>BLP目标：&#x3D;&#x3D;机密性&#x3D;&#x3D;</li>
+<li>Biba目标：&#x3D;&#x3D;完整性&#x3D;&#x3D;</li>
+<li>SM2：&#x3D;&#x3D;签名&#x2F;验签、密钥交换&#x3D;&#x3D;</li>
+<li>SM3：&#x3D;&#x3D;摘要&#x3D;&#x3D;</li>
+<li>SM4：&#x3D;&#x3D;对称加密（无线局域网常见）&#x3D;&#x3D;</li>
+<li>审计四要素：&#x3D;&#x3D;目标&#x2F;漏洞&#x2F;措施&#x2F;测试&#x3D;&#x3D;</li>
+<li>灾备第1级：&#x3D;&#x3D;基本支持&#x3D;&#x3D;</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%B8%88/" class="category-chain-item">软件&amp;架构设计师</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%BD%AF%E4%BB%B6-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%B8%88/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%B8%88/" class="print-no-link">#架构设计师</a>
+      
+        <a href="/tags/cpp/" class="print-no-link">#cpp</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>系统安全性P250</div>
+      <div>http://example.com/2026/05/15/系统安全性P250/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>qinxy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/08/14/git%E4%BB%A3%E7%A0%81%E7%BB%9F%E8%AE%A1/" title="git代码统计">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">git代码统计</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/02/06/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="23种设计模式">
+                        <span class="hidden-mobile">23种设计模式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
